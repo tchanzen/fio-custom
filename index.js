@@ -131,22 +131,27 @@ try {
 </div>`,n)}const ht={form:mt};function ft(n){return T.render(`<div class="cn-select-block row g-0">
   <% if (component.header) { %>
     <div class="col-12">
-      <h2 class="cn-select-block--header"><%= component.header %></h2>
-      <p class="cn-select-block--subheader"><%= component.subheader %></p>
+      <h2 class="cn-select-block--header">
+        <%= component.header %>
+      </h2>
+      <p class="cn-select-block--subheader">
+        <%= component.subheader %>
+      </p>
     </div>
-  <% } %>
-  </div>
-  <% component.values.forEach(function(item, index) { %>
-    <div ref="CNSelectBlock" class="col-12 card cn-select-block--option shadow-sm p-3 mb-3 d-flex flex-row align-items-center"
-      data-value="<%= item.value %>">
-      <div class="mr-2">
-        <input type="<%= component.inputType %>" name="<%= component.id %>">
-      </div>
-      <div class="cn-select-block--label">
-        <%= item.label %>
-      </div>
-    </div>
-    <% }); %>
+    <% } %>
+      <% component.values.forEach(function(item, index) { %>
+        <div ref="CNSelectBlock" class="col-12" data-value="<%= item.value %>">
+          <div class="card cn-select-block--option shadow-sm p-3 mb-3 d-flex flex-row align-items-center">
+            <div class="mr-2">
+              <input type="<%= component.inputType %>" name="<%= component.id %>">
+            </div>
+            <div class="cn-select-block--label">
+              <%= item.label %>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+</div>
 </div>`,n)}const yt={form:ft};function gt(n){return T.render(`<div class="cn-select-block-detailed row g-0">
   <% if (component.header) { %>
     <% var colClass=component.instructionalText ? "6" : "12" %>
@@ -160,74 +165,75 @@ try {
       </div>
       <% if (component.instructionalText) { %>
         <div class="col-6 text-right">
-            <p class="cn-select-block-detailed--instructional-text">
-              <i class="<%= component.infoIcon %> info-icon"></i> <%= component.instructionalText %>
-            </p>
+          <p class="cn-select-block-detailed--instructional-text">
+            <i class="<%= component.infoIcon %> info-icon"></i>
+            <%= component.instructionalText %>
+          </p>
         </div>
         <% } %>
           <% } %>
             <% component.values.forEach(function(item, index) { %>
-              <div ref="CNSelectBlockDetailed"
-                class="col-12 card cn-select-block-detailed--option shadow-sm p-3 mb-3 d-flex flex-row"
-                data-value="<%= item.value %>">
-                <div class="mr-2">
-                  <input type="<%= component.inputType %>" name="<%= component.id %>">
-                </div>
-                <div class="cn-select-block-detailed--content">
-                  <div class="cn-select-block-detailed--label">
-                    <%- item.label %>
+              <div ref="CNSelectBlockDetailed" class="col-12" data-value="<%= item.value %>">
+                <div class="card cn-select-block-detailed--option shadow-sm p-3 mb-3 d-flex flex-row">
+                  <div class="mr-2">
+                    <input type="<%= component.inputType %>" name="<%= component.id %>">
                   </div>
-                  <div class="mt-1 mb-1 cn-select-block-detailed--tags">
-                    <% if (item.tags) { %>
-                      <% item.tags.forEach(function(tag) { %>
-                        <% if (tag.tag.trim()) { %>
-                          <span class="badge me-1 mb-1 cn-select-block-detailed--tag <%= tag.theme.trim() %>">
-                            <%= tag.tag.trim() %>
-                          </span>
-                          <% } %>
-                            <% }); %>
-                              <% } %>
-                  </div>
-                  <div class="cn-select-block-detailed--description">
-                    <%- item.description %>
-                  </div>
-                  <% if (item.requirements || item.requiredDocuments) { %>
-                    <div class="mt-2 cn-select-block-detailed--accordion">
-                      <a class="btn btn-link p-0 cn-select-block-detailed--accordion-btn" data-toggle="collapse"
-                        href="#collapse-<%= component.id %>-<%= index %>" role="button" aria-expanded="false"
-                        aria-controls="collapse-<%= component.id %>-<%= index %>">
-                        View requirements
-                        <i class="<%= component.accordionIconDown %> collapse-icon-down"></i>
-                        <i class="<%= component.accordionIconUp %> collapse-icon-up" style="display: none;"></i>
-                      </a>
-                      <div class="collapse" id="collapse-<%= component.id %>-<%= index %>">
-                        <div class="card card-body mt-2 p-2">
-                          <div><i class="<%= component.infoIcon %> info-icon"></i></div>
-                          <div class="ml-2 cn-select-block-detailed--requirements">
-                            <% if (item.requirements) { %>
-                              <div class="cn-select-block-detailed--requirements-title">Requirements</div>
-                              <div class="cn-select-block-detailed--requirements-content"><%- item.requirements %></div>
-                              <% } %>
-                                <% if (item.requiredDocuments) { %>
-                                  <div class="cn-select-block-detailed--requiredDocuments mt-2">
-                                    <span class="cn-select-block-detailed--requirements-title"><i
-                                        class="<%= component.documentIcon %>"></i> Required documents: </span>
-                                    <% item.requiredDocuments.split(',').forEach(function(tag) { %>
-                                      <% if (tag.trim()) { %>
-                                        <span class="badge me-1 mb-1 cn-select-block-detailed--tag primary">
-                                          <%= tag.trim() %>
-                                        </span>
-                                        <% } %>
-                                          <% }); %>
-                                  </div>
-                                  <% } %>
+                  <div class="cn-select-block-detailed--content">
+                    <div class="cn-select-block-detailed--label">
+                      <%- item.label %>
+                    </div>
+                    <div class="mt-1 mb-1 cn-select-block-detailed--tags">
+                      <% if (item.tags) { %>
+                        <% item.tags.forEach(function(tag) { %>
+                          <% if (tag.tag.trim()) { %>
+                            <span class="badge me-1 mb-1 cn-select-block-detailed--tag <%= tag.theme.trim() %>">
+                              <%= tag.tag.trim() %>
+                            </span>
+                            <% } %>
+                              <% }); %>
+                                <% } %>
+                    </div>
+                    <div class="cn-select-block-detailed--description">
+                      <%- item.description %>
+                    </div>
+                    <% if (item.requirements || item.requiredDocuments) { %>
+                      <div class="mt-2 cn-select-block-detailed--accordion">
+                        <a class="btn btn-link p-0 cn-select-block-detailed--accordion-btn" data-toggle="collapse"
+                          href="#collapse-<%= component.id %>-<%= index %>" role="button" aria-expanded="false"
+                          aria-controls="collapse-<%= component.id %>-<%= index %>">
+                          View requirements
+                          <i class="<%= component.accordionIconDown %> collapse-icon-down"></i>
+                          <i class="<%= component.accordionIconUp %> collapse-icon-up" style="display: none;"></i>
+                        </a>
+                        <div class="collapse" id="collapse-<%= component.id %>-<%= index %>">
+                          <div class="card card-body mt-2 p-2">
+                            <div><i class="<%= component.infoIcon %> info-icon"></i></div>
+                            <div class="ml-2 cn-select-block-detailed--requirements">
+                              <% if (item.requirements) { %>
+                                <div class="cn-select-block-detailed--requirements-title">Requirements</div>
+                                <div class="cn-select-block-detailed--requirements-content"><%- item.requirements %>
+                                </div>
+                                <% } %>
+                                  <% if (item.requiredDocuments) { %>
+                                    <div class="cn-select-block-detailed--requiredDocuments mt-2">
+                                      <span class="cn-select-block-detailed--requirements-title"><i
+                                          class="<%= component.documentIcon %>"></i> Required documents: </span>
+                                      <% item.requiredDocuments.split(',').forEach(function(tag) { %>
+                                        <% if (tag.trim()) { %>
+                                          <span class="badge me-1 mb-1 cn-select-block-detailed--tag primary">
+                                            <%= tag.trim() %>
+                                          </span>
+                                          <% } %>
+                                            <% }); %>
+                                    </div>
+                                    <% } %>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <% } %>
+                      <% } %>
+                  </div>
                 </div>
-
               </div>
               <% }); %>
 </div>`,n)}const bt={form:gt},vt={CNFormBase:ot,CNPageHeader:st,CNRadioCard:rt,CNRadioSwitch:ht,CNSelectBlock:yt,CNSelectBlockDetailed:bt,CNWell:ut,wizardHeaderVertical:pt},kt={bootstrap:vt};Formio.use({components:Je,templates:kt});

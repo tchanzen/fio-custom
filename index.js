@@ -1,4 +1,4 @@
-var ne=Object.defineProperty;var ae=(n,a,s)=>a in n?ne(n,a,{enumerable:!0,configurable:!0,writable:!0,value:s}):n[a]=s;var j=(n,a,s)=>ae(n,typeof a!="symbol"?a+"":a,s);const ie=[{type:"number",key:"numberOfIcons",label:"Number of Icons",input:"true",tooltip:"The number of icons displayed in the form"},{type:"textfield",key:"icon",label:"Icon",input:"true",tooltip:"The bootstrap icon class that will go in the <i> tag"},{type:"textfield",key:"color",label:"Color",input:"true",tooltip:"The color of the icons"},{type:"textfield",key:"iconSize",label:"Icon Size",tooltip:"The size of the icon"},{key:"placeholder",ignore:!0}],se=Formio.Components.baseEditForm;function oe(...n){return se([{key:"display",components:ie},{key:"layout",ignore:!0}],...n)}const J=Formio.Components.components.field,F=class F extends J{static schema(...a){return J.schema({type:"rating",label:"rating",key:"rating",icon:"bi bi-star",iconSize:"2rem",color:"blue",numberOfIcons:5},...a)}static get builderInfo(){return{title:"Rating",icon:"star",group:"basic",documentation:"/userguide/#rating",weight:0,schema:F.schema()}}constructor(a,s,c){super(a,s,c)}render(){var a;return super.render(this.renderTemplate("rating",{numberOfIcons:this.component.numberOfIcons,filledIcons:Number((a=this.dataValue)==null?void 0:a.split("/")[0])}))}attachIcon(a,s){a.item(s).addEventListener("click",()=>{this.component.disabled||this.setValue(`${s+1}/${this.component.numberOfIcons}`)})}attachIcons(){const a=this.refs.icon;for(let s=0;s<a.length;s++)this.attachIcon(a,s)}attach(a){return this.loadRefs(a,{rating:"single",icon:"multiple"}),this.attachIcons(),super.attach(a)}get defaultSchema(){return F.schema()}setValue(a){const s=super.setValue(a);return this.redraw(),s}};j(F,"editForm",oe);let M=F;const ce=[{type:"number",key:"numberOfColumns",label:"Number of Columns",input:"true",tooltip:"The number of columns to be displayed"}],le=[{key:"multiple",ignore:!0},{key:"dataSrc",ignore:!0},{key:"dataType",ignore:!0},{type:"datagrid",input:!0,label:"Values",key:"values",tooltip:"The values that can be picked for this field. Values are text submitted with the form data. Labels are the title of the card. Description is the body. Icons are bootstrap icons, e.g. bi bi-book",weight:10,reorder:!0,defaultValue:[{label:"",value:"",description:"",icon:""}],components:[{label:"Label",key:"label",input:!0,type:"textfield"},{label:"Value",key:"value",input:!0,type:"textfield",allowCalculateOverride:!0,calculateValue:"value = _.camelCase(row.label);",validate:{required:!0}},{label:"Description",key:"description",input:!0,type:"textfield"},{label:"Icon",key:"icon",input:!0,type:"textfield"}]}],ue=Formio.Components.baseEditForm;function de(...n){return ue([{key:"display",components:ce},{key:"data",components:le}],...n)}const X=Formio.Components.components.field,S=class S extends X{static schema(...a){return X.schema({type:"cardField",label:"Card Field",key:"cardField",values:[{label:"",value:"",description:"",icon:""}],input:!0,numberOfColumns:2},...a)}static get builderInfo(){return{title:"Card Field",group:"basic",icon:"fas fa-square",weight:0,schema:S.schema()}}constructor(a,s,c){super(a,s,c)}render(){return super.render(this.renderTemplate("cardField",{component:this.component,value:this.dataValue,data:this.data,instance:this}))}attachCardListeners(){(this.refs.cardField||[]).forEach(s=>{s.addEventListener("click",()=>{const c=s.getAttribute("data-value");this.setValue(c)})})}attach(a){return this.loadRefs(a,{cardField:"multiple"}),this.attachCardListeners(),super.attach(a)}updateCards(a){(this.refs.cardField||[]).forEach(c=>{const g=c.getAttribute("data-value");c.classList.toggle("border-primary",g===a)})}get defaultSchema(){return S.schema()}setValue(a,s){const c=super.setValue(a,s);return this.updateCards(a),c}getValue(){return this.dataValue}};j(S,"editForm",de);let R=S;const fe={rating:M,cardField:R};function pe(n){return n&&n.__esModule&&Object.prototype.hasOwnProperty.call(n,"default")?n.default:n}function me(n){if(Object.prototype.hasOwnProperty.call(n,"__esModule"))return n;var a=n.default;if(typeof a=="function"){var s=function c(){return this instanceof c?Reflect.construct(a,arguments,this.constructor):a.apply(this,arguments)};s.prototype=a.prototype}else s={};return Object.defineProperty(s,"__esModule",{value:!0}),Object.keys(n).forEach(function(c){var g=Object.getOwnPropertyDescriptor(n,c);Object.defineProperty(s,c,g.get?g:{enumerable:!0,get:function(){return n[c]}})}),s}var k={};const he={},ve=Object.freeze(Object.defineProperty({__proto__:null,default:he},Symbol.toStringTag,{value:"Module"})),B=me(ve);var $={},Z;function ge(){return Z||(Z=1,function(n){var a=/[|\\{}()[\]^$+*?.]/g,s=Object.prototype.hasOwnProperty,c=function(l,d){return s.apply(l,[d])};n.escapeRegExpChars=function(l){return l?String(l).replace(a,"\\$&"):""};var g={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&#34;","'":"&#39;"},C=/[&<>'"]/g;function P(l){return g[l]||l}var A=`var _ENCODE_HTML_RULES = {
+var me=Object.defineProperty;var he=(n,a,o)=>a in n?me(n,a,{enumerable:!0,configurable:!0,writable:!0,value:o}):n[a]=o;var C=(n,a,o)=>he(n,typeof a!="symbol"?a+"":a,o);Formio.Components.baseEditForm;Formio.Components.components.field;const fe=[{type:"number",key:"numberOfColumns",label:"Number of Columns",input:"true",tooltip:"The number of columns to be displayed"},{key:"labelPosition",ignore:!0},{key:"placeholder",ignore:!0},{key:"description",ignore:!0},{key:"tooltip",ignore:!0},{key:"tabindex",ignore:!0},{key:"hidden",ignore:!0},{key:"hideLabel",ignore:!0},{key:"autofocus",ignore:!0},{key:"disabled",ignore:!0},{key:"tableView",ignore:!0},{key:"modalEdit",ignore:!0}],ye=[{key:"multiple",ignore:!0},{key:"dataSrc",ignore:!0},{key:"dataType",ignore:!0},{type:"datagrid",input:!0,label:"Values",key:"values",tooltip:"The values that can be picked for this field. Values are text submitted with the form data. Labels are the title of the card. Description is the body. Icons are bootstrap icons, e.g. bi bi-book",weight:10,reorder:!0,defaultValue:[{label:"",value:"",description:"",icon:""}],components:[{label:"Label",key:"label",input:!0,type:"textfield"},{label:"Value",key:"value",input:!0,type:"textfield",allowCalculateOverride:!0,calculateValue:"value = _.camelCase(row.label);",validate:{required:!0}},{label:"Description",key:"description",input:!0,type:"textfield"},{label:"Icon",key:"icon",input:!0,type:"textfield"}]}],ge=Formio.Components.baseEditForm;function be(...n){return ge([{key:"display",components:fe},{key:"data",components:ye}],...n)}const G=Formio.Components.components.field;var w;let ve=(w=class extends G{static schema(...a){return G.schema({type:"CNRadioCard",label:"CN Radio Card",key:"CNRadioCard",values:[{label:"",value:"",description:"",icon:""}],input:!0,numberOfColumns:2},...a)}static get builderInfo(){return{title:"CN Radio Card",group:"basic",icon:"fas fa-square",weight:0,schema:w.schema()}}constructor(a,o,i){super(a,o,i)}render(){return super.render(this.renderTemplate("CNRadioCard",{component:this.component,value:this.dataValue,data:this.data,instance:this}))}attachCardListeners(){(this.refs.CNRadioCard||[]).forEach(o=>{o.addEventListener("click",()=>{const i=o.getAttribute("data-value");this.setValue(i)})})}attach(a){return this.loadRefs(a,{CNRadioCard:"multiple"}),this.attachCardListeners(),super.attach(a)}updateCards(a){(this.refs.CNRadioCard||[]).forEach(i=>{const u=i.getAttribute("data-value");i.classList.toggle("border-primary",u===a)})}get defaultSchema(){return w.schema()}get labelInfo(){return{hidden:!0}}setValue(a,o){const i=super.setValue(a,o);return this.updateCards(a),i}getValue(){return this.dataValue}},C(w,"editForm",be),w);const ke=[{key:"hidden",ignore:!0},{key:"modalEdit",ignore:!0},{key:"tableView",ignore:!0},{key:"disabled",ignore:!0},{key:"hideLabel",ignore:!0},{key:"labelPosition",ignore:!0},{key:"placeholder",ignore:!0},{key:"description",ignore:!0},{key:"tooltip",ignore:!0},{key:"initialFocus",ignore:!0},{type:"textfield",key:"formName",label:"Form Name",input:"true",tooltip:"The name of the form",weight:1}],Ce=Formio.Components.components.nested.editForm;function we(...n){return Ce([{key:"display",components:ke}],...n)}const Q=Formio.Components.components.nested;var N;let Ne=(N=class extends Q{static schema(...a){return Q.schema({label:"CN Form Base",type:"CNFormBase",key:"CNFormBase",components:[],clearOnHide:!1,input:!1,tableView:!1,persistent:!1,formName:""},...a)}static get builderInfo(){return{title:"CN Form Base",icon:"list-alt",group:"layout",schema:N.schema()}}get defaultSchema(){return N.schema()}get labelInfo(){return{hidden:!0}}get nestedKey(){return`nested-${this.key}`}get templateName(){return"CNFormBase"}static get isContainer(){return!0}},C(N,"editForm",we),N);const Ee=[{key:"hidden",ignore:!0},{key:"modalEdit",ignore:!0},{key:"tableView",ignore:!0},{key:"disabled",ignore:!0},{key:"hideLabel",ignore:!0},{key:"labelPosition",ignore:!0},{key:"placeholder",ignore:!0},{key:"description",ignore:!0},{key:"tooltip",ignore:!0},{key:"initialFocus",ignore:!0},{type:"textfield",key:"wellTitle",label:"Well Title",input:"true",tooltip:"The title to display in the well header",weight:1},{type:"select",key:"wellSize",label:"Well Size",input:"true",tooltip:"The size of the well component",data:{values:[{label:"Small",value:"sm"},{label:"Default",value:"default"},{label:"Large",value:"lg"}]},defaultValue:"default",weight:2}],Se=Formio.Components.components.nested.editForm;function _e(...n){return Se([{key:"display",components:Ee}],...n)}const Y=Formio.Components.components.nested;var E;let Fe=(E=class extends Y{static schema(...a){return Y.schema({label:"CN Well",type:"CNWell",key:"CNWell",theme:"default",components:[],clearOnHide:!1,input:!1,tableView:!1,persistent:!1,wellTitle:"",wellSize:"default",hideLabel:!0},...a)}static get builderInfo(){return{title:"CN Well",icon:"square",group:"layout",schema:E.schema()}}get labelInfo(){return{hidden:!0}}get defaultSchema(){return E.schema()}get templateName(){return"CNWell"}static get isContainer(){return!0}},C(E,"editForm",_e),E);const xe=[{type:"textfield",key:"pageHeader",label:"Page Header",input:"true",tooltip:"Header for form page",weight:1},{type:"textfield",key:"pageSubheader",label:"Page Subheader",input:"true",tooltip:"Subheader for form page",weight:2},{key:"labelPosition",ignore:!0},{key:"placeholder",ignore:!0},{key:"description",ignore:!0},{key:"tooltip",ignore:!0},{key:"tabindex",ignore:!0},{key:"hidden",ignore:!0},{key:"hideLabel",ignore:!0},{key:"autofocus",ignore:!0},{key:"disabled",ignore:!0},{key:"tableView",ignore:!0},{key:"modalEdit",ignore:!0}],Le=Formio.Components.baseEditForm;function Te(...n){return Le([{key:"display",components:xe},{key:"data",ignore:!0},{key:"validation",ignore:!0}],...n)}const ee=Formio.Components.components.component;var S;let Ve=(S=class extends ee{static schema(...a){return ee.schema({type:"CNPageHeader",label:"CN Page Header",key:"CNPageHeader",input:!1,pageHeader:"",pageSubheader:""},...a)}static get builderInfo(){return{title:"CN Page Header",group:"layout",icon:"fas fa-square",weight:0,schema:S.schema()}}constructor(a,o,i){super(a,o,i)}render(){return super.render(this.renderTemplate("CNPageHeader",{component:this.component,instance:this}))}get defaultSchema(){return S.schema()}},C(S,"editForm",Te),S);const De=[{key:"placeholder",ignore:!0},{key:"description",ignore:!0},{key:"tooltip",ignore:!0},{key:"tabindex",ignore:!0},{key:"hidden",ignore:!0},{key:"autofocus",ignore:!0},{key:"disabled",ignore:!0},{key:"tableView",ignore:!0},{key:"modalEdit",ignore:!0}],Oe=[{key:"multiple",ignore:!0},{key:"dataSrc",ignore:!0},{key:"dataType",ignore:!0},{type:"datagrid",input:!0,label:"Values",key:"values",tooltip:"The values that can be picked for this field. Values are text submitted with the form data. Labels are the title of the card",weight:10,reorder:!0,defaultValue:[{label:"",value:"",description:"",icon:""}],components:[{label:"Label",key:"label",input:!0,type:"textfield"},{label:"Value",key:"value",input:!0,type:"textfield",allowCalculateOverride:!0,calculateValue:"value = _.camelCase(row.label);",validate:{required:!0}}]}],Ie=Formio.Components.baseEditForm;function Pe(...n){return Ie([{key:"display",components:De},{key:"data",components:Oe}],...n)}const te=Formio.Components.components.field;var _;let Re=(_=class extends te{static schema(...a){return te.schema({type:"CNRadioSwitch",label:"CN Radio Card",key:"CNRadioSwitch",values:[{label:"",value:""}],input:!0},...a)}static get builderInfo(){return{title:"CN Radio Switch",group:"basic",icon:"fas fa-square",weight:0,schema:_.schema()}}constructor(a,o,i){super(a,o,i)}render(){return super.render(this.renderTemplate("CNRadioSwitch",{component:this.component,value:this.dataValue,data:this.data,instance:this}))}attachCardListeners(){(this.refs.CNRadioSwitch||[]).forEach(o=>{o.addEventListener("click",()=>{const i=o.getAttribute("data-value");this.setValue(i)})})}attach(a){return this.loadRefs(a,{CNRadioSwitch:"multiple"}),this.attachCardListeners(),super.attach(a)}updateCards(a){(this.refs.CNRadioSwitch||[]).forEach(i=>{const u=i.getAttribute("data-value");i.classList.toggle("cn-radio-switch--selected",u===a)})}get defaultSchema(){return _.schema()}setValue(a,o){const i=super.setValue(a,o);return this.updateCards(a),i}getValue(){return this.dataValue}},C(_,"editForm",Pe),_);const Ae=[{type:"textfield",key:"header",label:"Page Header",input:"true",tooltip:"Header for form page",weight:1},{type:"textfield",key:"subheader",label:"Page Subheader",input:"true",tooltip:"Subheader for form page",weight:2},{type:"select",key:"inputType",label:"Input Type",input:"true",tooltip:"Radio or Checkbox",weight:3,required:!0,data:{values:[{label:"Radio",value:"radio"},{label:"Checkbox",value:"checkbox"}]},validate:{required:!0}},{key:"labelPosition",ignore:!0},{key:"placeholder",ignore:!0},{key:"description",ignore:!0},{key:"tooltip",ignore:!0},{key:"tabindex",ignore:!0},{key:"hidden",ignore:!0},{key:"autofocus",ignore:!0},{key:"disabled",ignore:!0},{key:"tableView",ignore:!0},{key:"modalEdit",ignore:!0}],$e=[{key:"multiple",ignore:!0},{key:"dataSrc",ignore:!0},{key:"dataType",ignore:!0},{type:"datagrid",input:!0,label:"Values",key:"values",tooltip:"The values that can be picked for this field. Values are text submitted with the form data. Labels are the title of the card. Description is the body. Icons are bootstrap icons, e.g. bi bi-book",weight:10,reorder:!0,defaultValue:[{label:"",value:"",description:"",icon:""}],components:[{label:"Label",key:"label",input:!0,type:"textfield"},{label:"Value",key:"value",input:!0,type:"textfield",allowCalculateOverride:!0,calculateValue:"value = _.camelCase(row.label);",validate:{required:!0}}]}],Be=Formio.Components.baseEditForm;function qe(...n){return Be([{key:"display",components:Ae},{key:"data",components:$e}],...n)}const ae=Formio.Components.components.field;var F;let je=(F=class extends ae{static schema(...a){return ae.schema({type:"CNSelectBlock",label:"CN Select Block",key:"CNSelectBlock",values:[{label:"",value:""}],input:!0,header:"",subheader:"",inputType:"radio"},...a)}static get builderInfo(){return{title:"CN Select Block",group:"basic",icon:"fas fa-square",weight:0,schema:F.schema()}}constructor(a,o,i){super(a,o,i)}render(){return super.render(this.renderTemplate("CNSelectBlock",{component:this.component,value:this.dataValue,data:this.data,instance:this}))}attachCardListeners(){(this.refs.CNSelectBlock||[]).forEach(o=>{o.addEventListener("click",()=>{const i=o.getAttribute("data-value"),u=o.querySelector("input");u&&(u.checked=!u.checked),this.setValue(i)})})}attach(a){return this.loadRefs(a,{CNSelectBlock:"multiple"}),this.attachCardListeners(),super.attach(a)}updateCards(a){(this.refs.CNSelectBlock||[]).forEach(i=>{const u=i.getAttribute("data-value");i.classList.toggle("cn-select-block--selected",this.updateCardsBasedOnInputType(u,a))})}updateCardsBasedOnInputType(a,o){return this.isCheckbox()?o.includes(a):o===a}get defaultSchema(){return F.schema()}setValue(a,o){let i=a;this.isCheckbox()&&(i=this.setValueForCheckbox(a));const u=super.setValue(i,o);return this.updateCards(i),u}setValueForCheckbox(a){return(typeof this.dataValue=="string"||!this.dataValue)&&(this.dataValue=[]),this.dataValue.indexOf(a)<0?[...this.dataValue,a]:this.dataValue.filter(i=>i!==a)}getValue(){return this.dataValue}isCheckbox(){return this.component.inputType==="checkbox"}},C(F,"editForm",qe),F);const He=[{type:"textfield",key:"header",label:"Section Header",input:"true",tooltip:"Header for form section",weight:1},{type:"textfield",key:"subheader",label:"Section Subheader",input:"true",tooltip:"Subheader for form section",weight:2},{type:"textfield",key:"instructionalText",label:"Instructional Text",input:"true",tooltip:"Instructions for form section",weight:3},{type:"select",key:"inputType",label:"Input Type",input:"true",tooltip:"Radio or Checkbox",weight:4,required:!0,data:{values:[{label:"Radio",value:"radio"},{label:"Checkbox",value:"checkbox"}]},validate:{required:!0}},{type:"textfield",key:"documentIcon",label:"Document Icon",input:"true",tooltip:"Icon class for document",weight:5},{type:"textfield",key:"infoIcon",label:"Info Icon",input:"true",tooltip:"Icon class for info circle",weight:6},{type:"textfield",key:"accordionIconDown",label:"Accordion Icon Down",input:"true",tooltip:"Icon class for accordion down",weight:7},{type:"textfield",key:"accordionIconUp",label:"Accordion Icon Up",input:"true",tooltip:"Icon class for accordion up",weight:8},{key:"labelPosition",ignore:!0},{key:"placeholder",ignore:!0},{key:"description",ignore:!0},{key:"tooltip",ignore:!0},{key:"tabindex",ignore:!0},{key:"hidden",ignore:!0},{key:"autofocus",ignore:!0},{key:"disabled",ignore:!0},{key:"tableView",ignore:!0},{key:"modalEdit",ignore:!0}],Me=[{key:"multiple",ignore:!0},{key:"dataSrc",ignore:!0},{key:"dataType",ignore:!0},{type:"editgrid",input:!0,label:"Values",key:"values",tooltip:"The values that can be picked for this field. Values are text submitted with the form data. Labels are the title of the card. Description is the body. Icons are bootstrap icons, e.g. bi bi-book",weight:10,reorder:!0,defaultValue:[{label:"",value:"",description:"",icon:""}],components:[{label:"Label",key:"label",input:!0,type:"textfield"},{label:"Value",key:"value",input:!0,type:"textfield",allowCalculateOverride:!0,calculateValue:"value = _.camelCase(row.label);",validate:{required:!0}},{label:"Description",key:"description",input:!0,type:"textfield"},{label:"Tags",key:"tags",input:!0,type:"datagrid",reorder:!0,defaultValue:[{tag:"",theme:""}],components:[{label:"Tag",key:"tag",input:!0,type:"textfield"},{label:"Theme",key:"theme",input:!0,type:"select",data:{values:[{label:"Primary",value:"primary"},{label:"Secondar",value:"secondary"}]}}]},{label:"Requirements",key:"requirements",input:!0,type:"textarea"},{label:"Required Documents",key:"requiredDocuments",tooltip:"Comma separated list of required documents",input:!0,type:"textfield"}]}],We=Formio.Components.baseEditForm;function ze(...n){return We([{key:"display",components:He},{key:"data",components:Me}],...n)}const ne=Formio.Components.components.field;var x;let Ue=(x=class extends ne{static schema(...a){return ne.schema({type:"CNSelectBlockDetailed",label:"CN Select Block Detailed",key:"CNSelectBlockDetailed",values:[{label:"",value:"",description:"",tags:"",requirements:"",requiredDocuments:""}],input:!0,header:"",subheader:"",instructionalText:"",inputType:"radio",documentIcon:"fas fa-file",infoIcon:"fas fa-circle-info",accordionIconDown:"fas fa-chevron-down",accordionIconUp:"fas fa-chevron-up"},...a)}static get builderInfo(){return{title:"CN Select Block Detailed",group:"basic",icon:"fas fa-file",weight:0,schema:x.schema()}}constructor(a,o,i){super(a,o,i)}render(){return super.render(this.renderTemplate("CNSelectBlockDetailed",{component:this.component,value:this.dataValue,data:this.data,instance:this}))}attachCardListeners(){(this.refs.CNSelectBlockDetailed||[]).forEach(o=>{o.addEventListener("click",i=>{const u=o.getAttribute("data-value"),g=o.querySelector("input");g&&(g.checked=!g.checked),this.setValue(u)})})}attach(a){return this.loadRefs(a,{CNSelectBlockDetailed:"multiple"}),this.attachCardListeners(),this.attachAccordionListeners(a),super.attach(a)}attachAccordionListeners(a){a.querySelectorAll(".cn-select-block-detailed--accordion-btn").forEach(i=>{const u=i.getAttribute("href"),g=a.querySelector(u);g&&($(g).on("show.bs.collapse",()=>{i.querySelector(".collapse-icon-down").style.display="none",i.querySelector(".collapse-icon-up").style.display="inline"}),$(g).on("hide.bs.collapse",()=>{i.querySelector(".collapse-icon-down").style.display="inline",i.querySelector(".collapse-icon-up").style.display="none"}))})}updateCards(a){(this.refs.CNSelectBlockDetailed||[]).forEach(i=>{const u=i.getAttribute("data-value");i.classList.toggle("cn-select-block-detailed--selected",this.updateCardsBasedOnInputType(u,a))})}updateCardsBasedOnInputType(a,o){return this.isCheckbox()?o.includes(a):o===a}get defaultSchema(){return x.schema()}setValue(a,o){let i=a;this.isCheckbox()&&(i=this.setValueForCheckbox(a));const u=super.setValue(i,o);return this.updateCards(i),u}setValueForCheckbox(a){return(typeof this.dataValue=="string"||!this.dataValue)&&(this.dataValue=[]),this.dataValue.indexOf(a)<0?[...this.dataValue,a]:this.dataValue.filter(i=>i!==a)}getValue(){return this.dataValue}isCheckbox(){return this.component.inputType==="checkbox"}},C(x,"editForm",ze),x);const Je={CNFormBase:Ne,CNPageHeader:Ve,CNRadioCard:ve,CNRadioSwitch:Re,CNSelectBlock:je,CNSelectBlockDetailed:Ue,CNWell:Fe};function Xe(n){return n&&n.__esModule&&Object.prototype.hasOwnProperty.call(n,"default")?n.default:n}function Ke(n){if(Object.prototype.hasOwnProperty.call(n,"__esModule"))return n;var a=n.default;if(typeof a=="function"){var o=function i(){return this instanceof i?Reflect.construct(a,arguments,this.constructor):a.apply(this,arguments)};o.prototype=a.prototype}else o={};return Object.defineProperty(o,"__esModule",{value:!0}),Object.keys(n).forEach(function(i){var u=Object.getOwnPropertyDescriptor(n,i);Object.defineProperty(o,i,u.get?u:{enumerable:!0,get:function(){return n[i]}})}),o}var H={};const Ze={},Ge=Object.freeze(Object.defineProperty({__proto__:null,default:Ze},Symbol.toStringTag,{value:"Module"})),re=Ke(Ge);var M={},ie;function Qe(){return ie||(ie=1,function(n){var a=/[|\\{}()[\]^$+*?.]/g,o=Object.prototype.hasOwnProperty,i=function(c,p){return o.apply(c,[p])};n.escapeRegExpChars=function(c){return c?String(c).replace(a,"\\$&"):""};var u={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&#34;","'":"&#39;"},g=/[&<>'"]/g;function A(c){return u[c]||c}var B=`var _ENCODE_HTML_RULES = {
       "&": "&amp;"
     , "<": "&lt;"
     , ">": "&gt;"
@@ -9,94 +9,225 @@ var ne=Object.defineProperty;var ae=(n,a,s)=>a in n?ne(n,a,{enumerable:!0,config
 function encode_char(c) {
   return _ENCODE_HTML_RULES[c] || c;
 };
-`;n.escapeXML=function(l){return l==null?"":String(l).replace(C,P)};function T(){return Function.prototype.toString.call(this)+`;
-`+A}try{typeof Object.defineProperty=="function"?Object.defineProperty(n.escapeXML,"toString",{value:T}):n.escapeXML.toString=T}catch{console.warn("Unable to set escapeXML.toString (is the Function prototype frozen?)")}n.shallowCopy=function(l,d){if(d=d||{},l!=null)for(var p in d)c(d,p)&&(p==="__proto__"||p==="constructor"||(l[p]=d[p]));return l},n.shallowCopyFromList=function(l,d,p){if(p=p||[],d=d||{},l!=null)for(var w=0;w<p.length;w++){var y=p[w];if(typeof d[y]<"u"){if(!c(d,y)||y==="__proto__"||y==="constructor")continue;l[y]=d[y]}}return l},n.cache={_data:{},set:function(l,d){this._data[l]=d},get:function(l){return this._data[l]},remove:function(l){delete this._data[l]},reset:function(){this._data={}}},n.hyphenToCamel=function(l){return l.replace(/-[a-z]/g,function(d){return d[1].toUpperCase()})},n.createNullProtoObjWherePossible=function(){return typeof Object.create=="function"?function(){return Object.create(null)}:{__proto__:null}instanceof Object?function(){return{}}:function(){return{__proto__:null}}}(),n.hasOwnOnlyObject=function(l){var d=n.createNullProtoObjWherePossible();for(var p in l)c(l,p)&&(d[p]=l[p]);return d}}($)),$}const ye="3.1.10",be={version:ye};var G;function _e(){return G||(G=1,function(n){/**
+`;n.escapeXML=function(c){return c==null?"":String(c).replace(g,A)};function P(){return Function.prototype.toString.call(this)+`;
+`+B}try{typeof Object.defineProperty=="function"?Object.defineProperty(n.escapeXML,"toString",{value:P}):n.escapeXML.toString=P}catch{console.warn("Unable to set escapeXML.toString (is the Function prototype frozen?)")}n.shallowCopy=function(c,p){if(p=p||{},c!=null)for(var h in p)i(p,h)&&(h==="__proto__"||h==="constructor"||(c[h]=p[h]));return c},n.shallowCopyFromList=function(c,p,h){if(h=h||[],p=p||{},c!=null)for(var V=0;V<h.length;V++){var v=h[V];if(typeof p[v]<"u"){if(!i(p,v)||v==="__proto__"||v==="constructor")continue;c[v]=p[v]}}return c},n.cache={_data:{},set:function(c,p){this._data[c]=p},get:function(c){return this._data[c]},remove:function(c){delete this._data[c]},reset:function(){this._data={}}},n.hyphenToCamel=function(c){return c.replace(/-[a-z]/g,function(p){return p[1].toUpperCase()})},n.createNullProtoObjWherePossible=function(){return typeof Object.create=="function"?function(){return Object.create(null)}:{__proto__:null}instanceof Object?function(){return{}}:function(){return{__proto__:null}}}(),n.hasOwnOnlyObject=function(c){var p=n.createNullProtoObjWherePossible();for(var h in c)i(c,h)&&(p[h]=c[h]);return p}}(M)),M}const Ye="3.1.10",et={version:Ye};var oe;function tt(){return oe||(oe=1,function(n){/**
  * @file Embedded JavaScript templating engine. {@link http://ejs.co}
  * @author Matthew Eernisse <mde@fleegix.org>
  * @author Tiancheng "Timothy" Gu <timothygu99@gmail.com>
  * @project EJS
  * @license {@link http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0}
- */var a=B,s=B,c=ge(),g=!1,C=be.version,P="<",A=">",T="%",l="locals",d="ejs",p="(<%%|%%>|<%=|<%-|<%_|<%#|<%|%>|-%>|_%>)",w=["delimiter","scope","context","debug","compileDebug","client","_with","rmWhitespace","strict","filename","async"],y=w.concat("cache"),V=/^\uFEFF/,N=/^[a-zA-Z_$][0-9a-zA-Z_$]*$/;n.cache=c.cache,n.fileLoader=a.readFileSync,n.localsName=l,n.promiseImpl=new Function("return this;")().Promise,n.resolveInclude=function(t,i,e){var r=s.dirname,o=s.extname,u=s.resolve,m=u(e?i:r(i),t),b=o(t);return b||(m+=".ejs"),m};function W(t,i){var e;if(i.some(function(r){return e=n.resolveInclude(t,r,!0),a.existsSync(e)}))return e}function K(t,i){var e,r,o=i.views,u=/^[A-Za-z]+:\\|^\//.exec(t);if(u&&u.length)t=t.replace(/^\/*/,""),Array.isArray(i.root)?e=W(t,i.root):e=n.resolveInclude(t,i.root||"/",!0);else if(i.filename&&(r=n.resolveInclude(t,i.filename),a.existsSync(r)&&(e=r)),!e&&Array.isArray(o)&&(e=W(t,o)),!e&&typeof i.includer!="function")throw new Error('Could not find the include file "'+i.escapeFunction(t)+'"');return e}function E(t,i){var e,r=t.filename,o=arguments.length>1;if(t.cache){if(!r)throw new Error("cache option requires a filename");if(e=n.cache.get(r),e)return e;o||(i=z(r).toString().replace(V,""))}else if(!o){if(!r)throw new Error("Internal EJS error: no file name or template provided");i=z(r).toString().replace(V,"")}return e=n.compile(i,t),t.cache&&n.cache.set(r,e),e}function Q(t,i,e){var r;if(e){try{r=E(t)(i)}catch(o){return e(o)}e(null,r)}else{if(typeof n.promiseImpl=="function")return new n.promiseImpl(function(o,u){try{r=E(t)(i),o(r)}catch(m){u(m)}});throw new Error("Please provide a callback function")}}function z(t){return n.fileLoader(t)}function Y(t,i){var e=c.shallowCopy(c.createNullProtoObjWherePossible(),i);if(e.filename=K(t,e),typeof i.includer=="function"){var r=i.includer(t,e.filename);if(r&&(r.filename&&(e.filename=r.filename),r.template))return E(e,r.template)}return E(e)}function x(t,i,e,r,o){var u=i.split(`
-`),m=Math.max(r-3,0),b=Math.min(u.length,r+3),v=o(e),_=u.slice(m,b).map(function(O,I){var L=I+m+1;return(L==r?" >> ":"    ")+L+"| "+O}).join(`
-`);throw t.path=v,t.message=(v||"ejs")+":"+r+`
-`+_+`
+ */var a=re,o=re,i=Qe(),u=!1,g=et.version,A="<",B=">",P="%",c="locals",p="ejs",h="(<%%|%%>|<%=|<%-|<%_|<%#|<%|%>|-%>|_%>)",V=["delimiter","scope","context","debug","compileDebug","client","_with","rmWhitespace","strict","filename","async"],v=V.concat("cache"),W=/^\uFEFF/,q=/^[a-zA-Z_$][0-9a-zA-Z_$]*$/;n.cache=i.cache,n.fileLoader=a.readFileSync,n.localsName=c,n.promiseImpl=new Function("return this;")().Promise,n.resolveInclude=function(t,l,e){var r=o.dirname,s=o.extname,d=o.resolve,f=d(e?l:r(l),t),k=s(t);return k||(f+=".ejs"),f};function z(t,l){var e;if(l.some(function(r){return e=n.resolveInclude(t,r,!0),a.existsSync(e)}))return e}function le(t,l){var e,r,s=l.views,d=/^[A-Za-z]+:\\|^\//.exec(t);if(d&&d.length)t=t.replace(/^\/*/,""),Array.isArray(l.root)?e=z(t,l.root):e=n.resolveInclude(t,l.root||"/",!0);else if(l.filename&&(r=n.resolveInclude(t,l.filename),a.existsSync(r)&&(e=r)),!e&&Array.isArray(s)&&(e=z(t,s)),!e&&typeof l.includer!="function")throw new Error('Could not find the include file "'+l.escapeFunction(t)+'"');return e}function D(t,l){var e,r=t.filename,s=arguments.length>1;if(t.cache){if(!r)throw new Error("cache option requires a filename");if(e=n.cache.get(r),e)return e;s||(l=U(r).toString().replace(W,""))}else if(!s){if(!r)throw new Error("Internal EJS error: no file name or template provided");l=U(r).toString().replace(W,"")}return e=n.compile(l,t),t.cache&&n.cache.set(r,e),e}function se(t,l,e){var r;if(e){try{r=D(t)(l)}catch(s){return e(s)}e(null,r)}else{if(typeof n.promiseImpl=="function")return new n.promiseImpl(function(s,d){try{r=D(t)(l),s(r)}catch(f){d(f)}});throw new Error("Please provide a callback function")}}function U(t){return n.fileLoader(t)}function ce(t,l){var e=i.shallowCopy(i.createNullProtoObjWherePossible(),l);if(e.filename=le(t,e),typeof l.includer=="function"){var r=l.includer(t,e.filename);if(r&&(r.filename&&(e.filename=r.filename),r.template))return D(e,r.template)}return D(e)}function J(t,l,e,r,s){var d=l.split(`
+`),f=Math.max(r-3,0),k=Math.min(d.length,r+3),b=s(e),L=d.slice(f,k).map(function(O,R){var I=R+f+1;return(I==r?" >> ":"    ")+I+"| "+O}).join(`
+`);throw t.path=b,t.message=(b||"ejs")+":"+r+`
+`+L+`
 
-`+t.message,t}function U(t){return t.replace(/;(\s*$)/,"$1")}n.compile=function(i,e){var r;return e&&e.scope&&(g||(console.warn("`scope` option is deprecated and will be removed in EJS 3"),g=!0),e.context||(e.context=e.scope),delete e.scope),r=new f(i,e),r.compile()},n.render=function(t,i,e){var r=i||c.createNullProtoObjWherePossible(),o=e||c.createNullProtoObjWherePossible();return arguments.length==2&&c.shallowCopyFromList(o,r,w),E(o,t)(r)},n.renderFile=function(){var t=Array.prototype.slice.call(arguments),i=t.shift(),e,r={filename:i},o,u;return typeof arguments[arguments.length-1]=="function"&&(e=t.pop()),t.length?(o=t.shift(),t.length?c.shallowCopy(r,t.pop()):(o.settings&&(o.settings.views&&(r.views=o.settings.views),o.settings["view cache"]&&(r.cache=!0),u=o.settings["view options"],u&&c.shallowCopy(r,u)),c.shallowCopyFromList(r,o,y)),r.filename=i):o=c.createNullProtoObjWherePossible(),Q(r,o,e)},n.Template=f,n.clearCache=function(){n.cache.reset()};function f(t,i){var e=c.hasOwnOnlyObject(i),r=c.createNullProtoObjWherePossible();this.templateText=t,this.mode=null,this.truncate=!1,this.currentLine=1,this.source="",r.client=e.client||!1,r.escapeFunction=e.escape||e.escapeFunction||c.escapeXML,r.compileDebug=e.compileDebug!==!1,r.debug=!!e.debug,r.filename=e.filename,r.openDelimiter=e.openDelimiter||n.openDelimiter||P,r.closeDelimiter=e.closeDelimiter||n.closeDelimiter||A,r.delimiter=e.delimiter||n.delimiter||T,r.strict=e.strict||!1,r.context=e.context,r.cache=e.cache||!1,r.rmWhitespace=e.rmWhitespace,r.root=e.root,r.includer=e.includer,r.outputFunctionName=e.outputFunctionName,r.localsName=e.localsName||n.localsName||l,r.views=e.views,r.async=e.async,r.destructuredLocals=e.destructuredLocals,r.legacyInclude=typeof e.legacyInclude<"u"?!!e.legacyInclude:!0,r.strict?r._with=!1:r._with=typeof e._with<"u"?e._with:!0,this.opts=r,this.regex=this.createRegex()}f.modes={EVAL:"eval",ESCAPED:"escaped",RAW:"raw",COMMENT:"comment",LITERAL:"literal"},f.prototype={createRegex:function(){var t=p,i=c.escapeRegExpChars(this.opts.delimiter),e=c.escapeRegExpChars(this.opts.openDelimiter),r=c.escapeRegExpChars(this.opts.closeDelimiter);return t=t.replace(/%/g,i).replace(/</g,e).replace(/>/g,r),new RegExp(t)},compile:function(){var t,i,e=this.opts,r="",o="",u=e.escapeFunction,m,b=e.filename?JSON.stringify(e.filename):"undefined";if(!this.source){if(this.generateSource(),r+=`  var __output = "";
+`+t.message,t}function X(t){return t.replace(/;(\s*$)/,"$1")}n.compile=function(l,e){var r;return e&&e.scope&&(u||(console.warn("`scope` option is deprecated and will be removed in EJS 3"),u=!0),e.context||(e.context=e.scope),delete e.scope),r=new m(l,e),r.compile()},n.render=function(t,l,e){var r=l||i.createNullProtoObjWherePossible(),s=e||i.createNullProtoObjWherePossible();return arguments.length==2&&i.shallowCopyFromList(s,r,V),D(s,t)(r)},n.renderFile=function(){var t=Array.prototype.slice.call(arguments),l=t.shift(),e,r={filename:l},s,d;return typeof arguments[arguments.length-1]=="function"&&(e=t.pop()),t.length?(s=t.shift(),t.length?i.shallowCopy(r,t.pop()):(s.settings&&(s.settings.views&&(r.views=s.settings.views),s.settings["view cache"]&&(r.cache=!0),d=s.settings["view options"],d&&i.shallowCopy(r,d)),i.shallowCopyFromList(r,s,v)),r.filename=l):s=i.createNullProtoObjWherePossible(),se(r,s,e)},n.Template=m,n.clearCache=function(){n.cache.reset()};function m(t,l){var e=i.hasOwnOnlyObject(l),r=i.createNullProtoObjWherePossible();this.templateText=t,this.mode=null,this.truncate=!1,this.currentLine=1,this.source="",r.client=e.client||!1,r.escapeFunction=e.escape||e.escapeFunction||i.escapeXML,r.compileDebug=e.compileDebug!==!1,r.debug=!!e.debug,r.filename=e.filename,r.openDelimiter=e.openDelimiter||n.openDelimiter||A,r.closeDelimiter=e.closeDelimiter||n.closeDelimiter||B,r.delimiter=e.delimiter||n.delimiter||P,r.strict=e.strict||!1,r.context=e.context,r.cache=e.cache||!1,r.rmWhitespace=e.rmWhitespace,r.root=e.root,r.includer=e.includer,r.outputFunctionName=e.outputFunctionName,r.localsName=e.localsName||n.localsName||c,r.views=e.views,r.async=e.async,r.destructuredLocals=e.destructuredLocals,r.legacyInclude=typeof e.legacyInclude<"u"?!!e.legacyInclude:!0,r.strict?r._with=!1:r._with=typeof e._with<"u"?e._with:!0,this.opts=r,this.regex=this.createRegex()}m.modes={EVAL:"eval",ESCAPED:"escaped",RAW:"raw",COMMENT:"comment",LITERAL:"literal"},m.prototype={createRegex:function(){var t=h,l=i.escapeRegExpChars(this.opts.delimiter),e=i.escapeRegExpChars(this.opts.openDelimiter),r=i.escapeRegExpChars(this.opts.closeDelimiter);return t=t.replace(/%/g,l).replace(/</g,e).replace(/>/g,r),new RegExp(t)},compile:function(){var t,l,e=this.opts,r="",s="",d=e.escapeFunction,f,k=e.filename?JSON.stringify(e.filename):"undefined";if(!this.source){if(this.generateSource(),r+=`  var __output = "";
   function __append(s) { if (s !== undefined && s !== null) __output += s }
-`,e.outputFunctionName){if(!N.test(e.outputFunctionName))throw new Error("outputFunctionName is not a valid JS identifier.");r+="  var "+e.outputFunctionName+` = __append;
-`}if(e.localsName&&!N.test(e.localsName))throw new Error("localsName is not a valid JS identifier.");if(e.destructuredLocals&&e.destructuredLocals.length){for(var v="  var __locals = ("+e.localsName+` || {}),
-`,_=0;_<e.destructuredLocals.length;_++){var O=e.destructuredLocals[_];if(!N.test(O))throw new Error("destructuredLocals["+_+"] is not a valid JS identifier.");_>0&&(v+=`,
-  `),v+=O+" = __locals."+O}r+=v+`;
+`,e.outputFunctionName){if(!q.test(e.outputFunctionName))throw new Error("outputFunctionName is not a valid JS identifier.");r+="  var "+e.outputFunctionName+` = __append;
+`}if(e.localsName&&!q.test(e.localsName))throw new Error("localsName is not a valid JS identifier.");if(e.destructuredLocals&&e.destructuredLocals.length){for(var b="  var __locals = ("+e.localsName+` || {}),
+`,L=0;L<e.destructuredLocals.length;L++){var O=e.destructuredLocals[L];if(!q.test(O))throw new Error("destructuredLocals["+L+"] is not a valid JS identifier.");L>0&&(b+=`,
+  `),b+=O+" = __locals."+O}r+=b+`;
 `}e._with!==!1&&(r+="  with ("+e.localsName+` || {}) {
-`,o+=`  }
-`),o+=`  return __output;
-`,this.source=r+this.source+o}e.compileDebug?t=`var __line = 1
+`,s+=`  }
+`),s+=`  return __output;
+`,this.source=r+this.source+s}e.compileDebug?t=`var __line = 1
   , __lines = `+JSON.stringify(this.templateText)+`
-  , __filename = `+b+`;
+  , __filename = `+k+`;
 try {
 `+this.source+`} catch (e) {
   rethrow(e, __lines, __filename, __line, escapeFn);
 }
-`:t=this.source,e.client&&(t="escapeFn = escapeFn || "+u.toString()+`;
-`+t,e.compileDebug&&(t="rethrow = rethrow || "+x.toString()+`;
+`:t=this.source,e.client&&(t="escapeFn = escapeFn || "+d.toString()+`;
+`+t,e.compileDebug&&(t="rethrow = rethrow || "+J.toString()+`;
 `+t)),e.strict&&(t=`"use strict";
 `+t),e.debug&&console.log(t),e.compileDebug&&e.filename&&(t=t+`
-//# sourceURL=`+b+`
-`);try{if(e.async)try{m=new Function("return (async function(){}).constructor;")()}catch(h){throw h instanceof SyntaxError?new Error("This environment does not support async/await"):h}else m=Function;i=new m(e.localsName+", escapeFn, include, rethrow",t)}catch(h){throw h instanceof SyntaxError&&(e.filename&&(h.message+=" in "+e.filename),h.message+=` while compiling ejs
+//# sourceURL=`+k+`
+`);try{if(e.async)try{f=new Function("return (async function(){}).constructor;")()}catch(y){throw y instanceof SyntaxError?new Error("This environment does not support async/await"):y}else f=Function;l=new f(e.localsName+", escapeFn, include, rethrow",t)}catch(y){throw y instanceof SyntaxError&&(e.filename&&(y.message+=" in "+e.filename),y.message+=` while compiling ejs
 
-`,h.message+=`If the above error is not helpful, you may want to try EJS-Lint:
-`,h.message+="https://github.com/RyanZim/EJS-Lint",e.async||(h.message+=`
-`,h.message+="Or, if you meant to create an async function, pass `async: true` as an option.")),h}var I=e.client?i:function(H){var te=function(re,q){var D=c.shallowCopy(c.createNullProtoObjWherePossible(),H);return q&&(D=c.shallowCopy(D,q)),Y(re,e)(D)};return i.apply(e.context,[H||c.createNullProtoObjWherePossible(),u,te,x])};if(e.filename&&typeof Object.defineProperty=="function"){var L=e.filename,ee=s.basename(L,s.extname(L));try{Object.defineProperty(I,"name",{value:ee,writable:!1,enumerable:!1,configurable:!0})}catch{}}return I},generateSource:function(){var t=this.opts;t.rmWhitespace&&(this.templateText=this.templateText.replace(/[\r\n]+/g,`
-`).replace(/^\s+|\s+$/gm,"")),this.templateText=this.templateText.replace(/[ \t]*<%_/gm,"<%_").replace(/_%>[ \t]*/gm,"_%>");var i=this,e=this.parseTemplateText(),r=this.opts.delimiter,o=this.opts.openDelimiter,u=this.opts.closeDelimiter;e&&e.length&&e.forEach(function(m,b){var v;if(m.indexOf(o+r)===0&&m.indexOf(o+r+r)!==0&&(v=e[b+2],!(v==r+u||v=="-"+r+u||v=="_"+r+u)))throw new Error('Could not find matching close tag for "'+m+'".');i.scanLine(m)})},parseTemplateText:function(){for(var t=this.templateText,i=this.regex,e=i.exec(t),r=[],o;e;)o=e.index,o!==0&&(r.push(t.substring(0,o)),t=t.slice(o)),r.push(e[0]),t=t.slice(e[0].length),e=i.exec(t);return t&&r.push(t),r},_addOutput:function(t){if(this.truncate&&(t=t.replace(/^(?:\r\n|\r|\n)/,""),this.truncate=!1),!t)return t;t=t.replace(/\\/g,"\\\\"),t=t.replace(/\n/g,"\\n"),t=t.replace(/\r/g,"\\r"),t=t.replace(/"/g,'\\"'),this.source+='    ; __append("'+t+`")
-`},scanLine:function(t){var i=this,e=this.opts.delimiter,r=this.opts.openDelimiter,o=this.opts.closeDelimiter,u=0;switch(u=t.split(`
-`).length-1,t){case r+e:case r+e+"_":this.mode=f.modes.EVAL;break;case r+e+"=":this.mode=f.modes.ESCAPED;break;case r+e+"-":this.mode=f.modes.RAW;break;case r+e+"#":this.mode=f.modes.COMMENT;break;case r+e+e:this.mode=f.modes.LITERAL,this.source+='    ; __append("'+t.replace(r+e+e,r+e)+`")
-`;break;case e+e+o:this.mode=f.modes.LITERAL,this.source+='    ; __append("'+t.replace(e+e+o,e+o)+`")
-`;break;case e+o:case"-"+e+o:case"_"+e+o:this.mode==f.modes.LITERAL&&this._addOutput(t),this.mode=null,this.truncate=t.indexOf("-")===0||t.indexOf("_")===0;break;default:if(this.mode){switch(this.mode){case f.modes.EVAL:case f.modes.ESCAPED:case f.modes.RAW:t.lastIndexOf("//")>t.lastIndexOf(`
+`,y.message+=`If the above error is not helpful, you may want to try EJS-Lint:
+`,y.message+="https://github.com/RyanZim/EJS-Lint",e.async||(y.message+=`
+`,y.message+="Or, if you meant to create an async function, pass `async: true` as an option.")),y}var R=e.client?l:function(K){var de=function(pe,Z){var j=i.shallowCopy(i.createNullProtoObjWherePossible(),K);return Z&&(j=i.shallowCopy(j,Z)),ce(pe,e)(j)};return l.apply(e.context,[K||i.createNullProtoObjWherePossible(),d,de,J])};if(e.filename&&typeof Object.defineProperty=="function"){var I=e.filename,ue=o.basename(I,o.extname(I));try{Object.defineProperty(R,"name",{value:ue,writable:!1,enumerable:!1,configurable:!0})}catch{}}return R},generateSource:function(){var t=this.opts;t.rmWhitespace&&(this.templateText=this.templateText.replace(/[\r\n]+/g,`
+`).replace(/^\s+|\s+$/gm,"")),this.templateText=this.templateText.replace(/[ \t]*<%_/gm,"<%_").replace(/_%>[ \t]*/gm,"_%>");var l=this,e=this.parseTemplateText(),r=this.opts.delimiter,s=this.opts.openDelimiter,d=this.opts.closeDelimiter;e&&e.length&&e.forEach(function(f,k){var b;if(f.indexOf(s+r)===0&&f.indexOf(s+r+r)!==0&&(b=e[k+2],!(b==r+d||b=="-"+r+d||b=="_"+r+d)))throw new Error('Could not find matching close tag for "'+f+'".');l.scanLine(f)})},parseTemplateText:function(){for(var t=this.templateText,l=this.regex,e=l.exec(t),r=[],s;e;)s=e.index,s!==0&&(r.push(t.substring(0,s)),t=t.slice(s)),r.push(e[0]),t=t.slice(e[0].length),e=l.exec(t);return t&&r.push(t),r},_addOutput:function(t){if(this.truncate&&(t=t.replace(/^(?:\r\n|\r|\n)/,""),this.truncate=!1),!t)return t;t=t.replace(/\\/g,"\\\\"),t=t.replace(/\n/g,"\\n"),t=t.replace(/\r/g,"\\r"),t=t.replace(/"/g,'\\"'),this.source+='    ; __append("'+t+`")
+`},scanLine:function(t){var l=this,e=this.opts.delimiter,r=this.opts.openDelimiter,s=this.opts.closeDelimiter,d=0;switch(d=t.split(`
+`).length-1,t){case r+e:case r+e+"_":this.mode=m.modes.EVAL;break;case r+e+"=":this.mode=m.modes.ESCAPED;break;case r+e+"-":this.mode=m.modes.RAW;break;case r+e+"#":this.mode=m.modes.COMMENT;break;case r+e+e:this.mode=m.modes.LITERAL,this.source+='    ; __append("'+t.replace(r+e+e,r+e)+`")
+`;break;case e+e+s:this.mode=m.modes.LITERAL,this.source+='    ; __append("'+t.replace(e+e+s,e+s)+`")
+`;break;case e+s:case"-"+e+s:case"_"+e+s:this.mode==m.modes.LITERAL&&this._addOutput(t),this.mode=null,this.truncate=t.indexOf("-")===0||t.indexOf("_")===0;break;default:if(this.mode){switch(this.mode){case m.modes.EVAL:case m.modes.ESCAPED:case m.modes.RAW:t.lastIndexOf("//")>t.lastIndexOf(`
 `)&&(t+=`
-`)}switch(this.mode){case f.modes.EVAL:this.source+="    ; "+t+`
-`;break;case f.modes.ESCAPED:this.source+="    ; __append(escapeFn("+U(t)+`))
-`;break;case f.modes.RAW:this.source+="    ; __append("+U(t)+`)
-`;break;case f.modes.COMMENT:break;case f.modes.LITERAL:this._addOutput(t);break}}else this._addOutput(t)}i.opts.compileDebug&&u&&(this.currentLine+=u,this.source+="    ; __line = "+this.currentLine+`
-`)}},n.escapeXML=c.escapeXML,n.__express=n.renderFile,n.VERSION=C,n.name=d,typeof window<"u"&&(window.ejs=n)}(k)),k}var we=_e();const Ee=pe(we);function Oe(n){return Ee.render(`<div class="cn-card-field--group d-flex flex-wrap">
+`)}switch(this.mode){case m.modes.EVAL:this.source+="    ; "+t+`
+`;break;case m.modes.ESCAPED:this.source+="    ; __append(escapeFn("+X(t)+`))
+`;break;case m.modes.RAW:this.source+="    ; __append("+X(t)+`)
+`;break;case m.modes.COMMENT:break;case m.modes.LITERAL:this._addOutput(t);break}}else this._addOutput(t)}l.opts.compileDebug&&d&&(this.currentLine+=d,this.source+="    ; __line = "+this.currentLine+`
+`)}},n.escapeXML=i.escapeXML,n.__express=n.renderFile,n.VERSION=g,n.name=p,typeof window<"u"&&(window.ejs=n)}(H)),H}var at=tt();const T=Xe(at);function nt(n){return T.render(`<div class="cn-radio-card--group row g-0">
   <% component.values.forEach(function(item) { %>
-    <div ref="cardField" class="card cn-card-field--option mb-2 mr-2 shadow-sm" data-value="<%= item.value %>"
-      style="cursor: pointer;">
-      <div class="row g-0">
-        <div class="col-md-2">
-          <div
-            class="cn-card-field--icon m-2 border rounded h-50 text-center d-flex justify-content-center align-items-center">
-            <i class="<%= item.icon || 'fas fa-circle' %> w-100"></i>
+    <div class="col-md-<%= (12 / component.numberOfColumns) %>">
+      <div ref="CNRadioCard" class="card cn-radio-card--option shadow-sm mr-2" data-value="<%= item.value %>"
+        style="cursor: pointer;">
+        <div class="row g-0">
+          <div class="col-md-2">
+            <div
+              class="cn-radio-card--icon m-2 border rounded h-50 w-100 text-center d-flex justify-content-center align-items-center">
+              <i class="<%= item.icon || 'fas fa-circle' %> w-100"></i>
+            </div>
           </div>
-        </div>
-        <div class="col-md-10">
-          <div class="card-body">
-            <h5 class="card-title mb-1">
-              <%= item.label %>
-            </h5>
-            <% if (item.description) { %>
-              <p class="card-text text-muted small"><%- item.description %></p>
-              <% } else { %>
-                <p class="card-text text-muted small"></p>
-                <% } %>
+          <div class="col-md-10">
+            <div class="card-body">
+              <h5 class="card-title mb-1">
+                <%= item.label %>
+              </h5>
+              <% if (item.description) { %>
+                <p class="card-text text-muted small"><%- item.description %></p>
+                <% } else { %>
+                  <p class="card-text text-muted small"></p>
+                  <% } %>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <% }); %>
-</div>`,n)}const Le={form:Oe};function Fe(n){return`
-    <div ref="rating">
-      ${function(){let a="";for(let s=0;s<n.numberOfIcons;s++)a+=`<i style="color: ${n.component.color}; font-size: ${n.component.iconSize}" class="${n.component.icon}${s<n.filledIcons?"-fill":""}" ref="icon"></i>`;return a}()}
+</div>
+`,n)}const rt={form:nt};function it(n){return T.render(`<div class="cn-form-base" ref="component">
+  <div class="cn-form-base--container p-4">
+    <div class="cn-form-base--header text-white mb-4">
+      <span><%- component.formName %></span>
     </div>
-  `}const Se={form:Fe};function Te(n){return`<nav aria-label="navigation" id="${n.wizardKey}-header" class="cn-wizard-header-vertical">
+    <div class="cn-form-base--well" ref="nested-<%= component.key %>">
+      <%- children %>
+    </div>
+  </div>
+</div>`,n)}const ot={form:it};function lt(n){return T.render(`<div class="cn-page-header">
+    <% if (component.pageHeader) { %>
+     <h1 class="cn-page-header--header"><%- component.pageHeader %></h1>
+    <% } %>
+    <% if (component.pageSubheader) { %>
+     <p class="cn-page-header--subheader"><%- component.pageSubheader %></p>
+    <% } %>
+</div>`,n)}const st={form:lt};function ct(n){return T.render(`<div class="cn-well-container well well-<%= component.wellSize || 'default' %>">
+  <div class="cn-well-body" ref="nested-<%= component.key %>" id="<%= component.key %>-<%= component.key %>">
+    <%- children %>
+  </div>
+</div>
+`,n)}const ut={form:ct};function dt(n){return`<nav aria-label="navigation" id="${n.wizardKey}-header" class="cn-wizard-header-vertical">
     <ul class="pagination flex-column">
-      ${n.panels.map((a,s)=>`
-      <li class="col-xs-12 page-item${n.currentPage===s?" active":""} d-flex align-items-center" style="cursor: pointer;">  
-        ${n.currentPage<s?'<i class="bi bi-circle"></i>':'<i class="bi bi-circle-fill"></i>'}
+      ${n.panels.map((a,o)=>`
+      <li class="col-xs-12 page-item${n.currentPage===o?" active":""} d-flex align-items-center" style="cursor: pointer;">  
+        ${n.currentPage<o?'<i class="bi bi-circle"></i>':'<i class="bi bi-circle-fill"></i>'}
         <span class="page-link" ref="${n.wizardKey}-link" style="margin-left: 0px;">
           ${n.t(a.title,{_userInput:!0})}
-          ${a.tooltip&&n.currentPage===s?`<i ref="${n.wizardKey}-tooltip" class="${n.iconClass("question-sign")} text-muted" data-tooltip="${a.tooltip}"></i>`:""}
+          ${a.tooltip&&n.currentPage===o?`<i ref="${n.wizardKey}-tooltip" class="${n.iconClass("question-sign")} text-muted" data-tooltip="${a.tooltip}"></i>`:""}
         </span>
       </li>
       `).join("")}
     </ul>
-  </nav>`}const Ie={form:Te},Ce={wizardHeaderVertical:Ie,cardField:Le,rating:Se},Pe={bootstrap:Ce};Formio.use({components:fe,templates:Pe});
+  </nav>`}const pt={form:dt};function mt(n){return T.render(`<div class="cn-radio-switch--group d-flex">
+  <% component.values.forEach(function(item) { %>
+    <div ref="CNRadioSwitch" class="cn-radio-switch--option flex-fill shadow-sm text-center p-2"
+      data-value="<%= item.value %>" style="cursor: pointer;">
+      <span>
+        <%= item.label %>
+      </span>
+    </div>
+    <% }); %>
+</div>`,n)}const ht={form:mt};function ft(n){return T.render(`<div class="cn-select-block row g-0">
+  <% if (component.header) { %>
+    <div class="col-12">
+      <h2 class="cn-select-block--header"><%= component.header %></h2>
+      <p class="cn-select-block--subheader"><%= component.subheader %></p>
+    </div>
+  <% } %>
+  </div>
+  <% component.values.forEach(function(item, index) { %>
+    <div ref="CNSelectBlock" class="col-12 card cn-select-block--option shadow-sm p-3 mb-3 d-flex flex-row align-items-center"
+      data-value="<%= item.value %>">
+      <div class="mr-2">
+        <input type="<%= component.inputType %>" name="<%= component.id %>">
+      </div>
+      <div class="cn-select-block--label">
+        <%= item.label %>
+      </div>
+    </div>
+    <% }); %>
+</div>`,n)}const yt={form:ft};function gt(n){return T.render(`<div class="cn-select-block-detailed row g-0">
+  <% if (component.header) { %>
+    <% var colClass=component.instructionalText ? "6" : "12" %>
+      <div class="col-<%= colClass %>">
+        <h2 class="cn-select-block-detailed--header">
+          <%= component.header %>
+        </h2>
+        <p class="cn-select-block-detailed--subheader">
+          <%= component.subheader %>
+        </p>
+      </div>
+      <% if (component.instructionalText) { %>
+        <div class="col-6 text-right">
+            <p class="cn-select-block-detailed--instructional-text">
+              <i class="<%= component.infoIcon %> info-icon"></i> <%= component.instructionalText %>
+            </p>
+        </div>
+        <% } %>
+          <% } %>
+            <% component.values.forEach(function(item, index) { %>
+              <div ref="CNSelectBlockDetailed"
+                class="col-12 card cn-select-block-detailed--option shadow-sm p-3 mb-3 d-flex flex-row"
+                data-value="<%= item.value %>">
+                <div class="mr-2">
+                  <input type="<%= component.inputType %>" name="<%= component.id %>">
+                </div>
+                <div class="cn-select-block-detailed--content">
+                  <div class="cn-select-block-detailed--label">
+                    <%- item.label %>
+                  </div>
+                  <div class="mt-1 mb-1 cn-select-block-detailed--tags">
+                    <% if (item.tags) { %>
+                      <% item.tags.forEach(function(tag) { %>
+                        <% if (tag.tag.trim()) { %>
+                          <span class="badge me-1 mb-1 cn-select-block-detailed--tag <%= tag.theme.trim() %>">
+                            <%= tag.tag.trim() %>
+                          </span>
+                          <% } %>
+                            <% }); %>
+                              <% } %>
+                  </div>
+                  <div class="cn-select-block-detailed--description">
+                    <%- item.description %>
+                  </div>
+                  <% if (item.requirements || item.requiredDocuments) { %>
+                    <div class="mt-2 cn-select-block-detailed--accordion">
+                      <a class="btn btn-link p-0 cn-select-block-detailed--accordion-btn" data-toggle="collapse"
+                        href="#collapse-<%= component.id %>-<%= index %>" role="button" aria-expanded="false"
+                        aria-controls="collapse-<%= component.id %>-<%= index %>">
+                        View requirements
+                        <i class="<%= component.accordionIconDown %> collapse-icon-down"></i>
+                        <i class="<%= component.accordionIconUp %> collapse-icon-up" style="display: none;"></i>
+                      </a>
+                      <div class="collapse" id="collapse-<%= component.id %>-<%= index %>">
+                        <div class="card card-body mt-2 p-2">
+                          <div><i class="<%= component.infoIcon %> info-icon"></i></div>
+                          <div class="ml-2 cn-select-block-detailed--requirements">
+                            <% if (item.requirements) { %>
+                              <div class="cn-select-block-detailed--requirements-title">Requirements</div>
+                              <div class="cn-select-block-detailed--requirements-content"><%- item.requirements %></div>
+                              <% } %>
+                                <% if (item.requiredDocuments) { %>
+                                  <div class="cn-select-block-detailed--requiredDocuments mt-2">
+                                    <span class="cn-select-block-detailed--requirements-title"><i
+                                        class="<%= component.documentIcon %>"></i> Required documents: </span>
+                                    <% item.requiredDocuments.split(',').forEach(function(tag) { %>
+                                      <% if (tag.trim()) { %>
+                                        <span class="badge me-1 mb-1 cn-select-block-detailed--tag primary">
+                                          <%= tag.trim() %>
+                                        </span>
+                                        <% } %>
+                                          <% }); %>
+                                  </div>
+                                  <% } %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <% } %>
+                </div>
+
+              </div>
+              <% }); %>
+</div>`,n)}const bt={form:gt},vt={CNFormBase:ot,CNPageHeader:st,CNRadioCard:rt,CNRadioSwitch:ht,CNSelectBlock:yt,CNSelectBlockDetailed:bt,CNWell:ut,wizardHeaderVertical:pt},kt={bootstrap:vt};Formio.use({components:Je,templates:kt});
